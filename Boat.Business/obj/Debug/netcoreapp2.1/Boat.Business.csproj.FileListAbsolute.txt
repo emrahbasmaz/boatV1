@@ -1,0 +1,9 @@
+D:\boatService\boatV1\Boat.Business\bin\Debug\netcoreapp2.1\Boat.Business.deps.json
+D:\boatService\boatV1\Boat.Business\bin\Debug\netcoreapp2.1\Boat.Business.dll
+D:\boatService\boatV1\Boat.Business\obj\Debug\netcoreapp2.1\Boat.Business.csprojAssemblyReference.cache
+D:\boatService\boatV1\Boat.Business\obj\Debug\netcoreapp2.1\Boat.Business.csproj.CoreCompileInputs.cache
+D:\boatService\boatV1\Boat.Business\obj\Debug\netcoreapp2.1\Boat.Business.AssemblyInfoInputs.cache
+D:\boatService\boatV1\Boat.Business\obj\Debug\netcoreapp2.1\Boat.Business.AssemblyInfo.cs
+D:\boatService\boatV1\Boat.Business\bin\Debug\netcoreapp2.1\Boat.Business.pdb
+D:\boatService\boatV1\Boat.Business\obj\Debug\netcoreapp2.1\Boat.Business.dll
+D:\boatService\boatV1\Boat.Business\obj\Debug\netcoreapp2.1\Boat.Business.pdb

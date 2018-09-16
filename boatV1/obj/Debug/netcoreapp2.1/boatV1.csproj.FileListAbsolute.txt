@@ -1,0 +1,14 @@
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\boatV1.deps.json
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\boatV1.runtimeconfig.json
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\boatV1.runtimeconfig.dev.json
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\boatV1.dll
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.csproj.CoreCompileInputs.cache
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.RazorAssemblyInfo.cache
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.RazorAssemblyInfo.cs
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.AssemblyInfoInputs.cache
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.AssemblyInfo.cs
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.RazorTargetAssemblyInfo.cache
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\boatV1.pdb
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.dll
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.pdb
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.csprojAssemblyReference.cache

@@ -3,7 +3,6 @@ D:\boatService\boatV1\Boat.Data\bin\Debug\netcoreapp2.1\Boat.Data.dll
 D:\boatService\boatV1\Boat.Data\obj\Debug\netcoreapp2.1\Boat.Data.csproj.CoreCompileInputs.cache
 D:\boatService\boatV1\Boat.Data\obj\Debug\netcoreapp2.1\Boat.Data.AssemblyInfoInputs.cache
 D:\boatService\boatV1\Boat.Data\obj\Debug\netcoreapp2.1\Boat.Data.AssemblyInfo.cs
-D:\boatService\boatV1\Boat.Data\obj\Debug\netcoreapp2.1\Boat.Data.csprojAssemblyReference.cache
 D:\boatService\boatV1\Boat.Data\bin\Debug\netcoreapp2.1\Boat.Data.pdb
 D:\boatService\boatV1\Boat.Data\obj\Debug\netcoreapp2.1\Boat.Data.dll
 D:\boatService\boatV1\Boat.Data\obj\Debug\netcoreapp2.1\Boat.Data.pdb

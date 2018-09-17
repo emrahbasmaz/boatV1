@@ -1,13 +1,12 @@
 ﻿using Boat.Backoffice.DataModel.PaymentModule.Entity;
-using Boat.Backoffice.Utility;
 using Boat.Data.DataModel.PaymentModule.Service.Interface;
+using Boat.Data.Utility;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using static Boat.Data.Dto.Enums;
 
 namespace Boat.Data.DataModel.PaymentModule.Service
 {
@@ -16,12 +15,12 @@ namespace Boat.Data.DataModel.PaymentModule.Service
         public List<Reservation> SelectByCustomerNumber(long customerNumber)
         {
             List<Reservation> _reserv = null;
-            using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 IEnumerable<Reservation> reservations = sqlConnection.Query<Reservation>("select * from RESERVATION where CUSTOMER_NUMBER = @id and RECORD_STATUS = 1", new { id = customerNumber });
                 if (reservations.Count() == 0)
-                    throw new Exception(CommonDefinitions.PAYMENT_TRANSACTION_NOT_FOUND);
+                    throw new Exception("PAYMENT_TRANSACTION_NOT_FOUND");
                 else
                     _reserv = reservations.ToList();
             }
@@ -32,12 +31,12 @@ namespace Boat.Data.DataModel.PaymentModule.Service
         public Reservation SelectByPaymentId(long paymentId)
         {
             Reservation _cardMaster = null;
-            using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 IEnumerable<Reservation> card_master = sqlConnection.Query<Reservation>("select * from RESERVATION where PAYMENT_ID = @id and RECORD_STATUS = 1", new { id = paymentId });
                 if (card_master.Count() == 0)
-                    throw new Exception(CommonDefinitions.PAYMENT_TRANSACTION_NOT_FOUND);
+                    throw new Exception("PAYMENT_TRANSACTION_NOT_FOUND");
                 else
                     _cardMaster = card_master.FirstOrDefault();
             }
@@ -48,12 +47,12 @@ namespace Boat.Data.DataModel.PaymentModule.Service
         public Reservation SelectByReservationId(long reservationId)
         {
             Reservation _cardMaster = null;
-            using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 IEnumerable<Reservation> card_master = sqlConnection.Query<Reservation>("select * from RESERVATION where RESERVATION_ID = @id and RECORD_STATUS = 1", new { id = reservationId });
                 if (card_master.Count() == 0)
-                    throw new Exception(CommonDefinitions.PAYMENT_TRANSACTION_NOT_FOUND);
+                    throw new Exception("PAYMENT_TRANSACTION_NOT_FOUND");
                 else
                     _cardMaster = card_master.FirstOrDefault();
             }
@@ -64,12 +63,12 @@ namespace Boat.Data.DataModel.PaymentModule.Service
         public List<Reservation> SelectByBoatId(long boatId)
         {
             List<Reservation> _cardMaster = null;
-            using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 IEnumerable<Reservation> card_master = sqlConnection.Query<Reservation>("select * from RESERVATION where BOAT_ID = @id and RECORD_STATUS = 1", new { id = boatId });
                 if (card_master.Count() == 0)
-                    throw new Exception(CommonDefinitions.PAYMENT_TRANSACTION_NOT_FOUND);
+                    throw new Exception("PAYMENT_TRANSACTION_NOT_FOUND");
                 else
                     _cardMaster = card_master.ToList();
             }
@@ -82,7 +81,7 @@ namespace Boat.Data.DataModel.PaymentModule.Service
             try
             {
                 Reservation _reservation = null;
-                using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+                using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
                 {
                     sqlConnection.Open();
                     _reservation = sqlConnection.Get<Reservation>(request.RESERVATION_ID);
@@ -122,7 +121,7 @@ namespace Boat.Data.DataModel.PaymentModule.Service
 
         public long Insert(Reservation card)
         {
-            using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
 
@@ -159,7 +158,7 @@ namespace Boat.Data.DataModel.PaymentModule.Service
             try
             {
                 Reservation _reservation = null;
-                using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+                using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
                 {
                     sqlConnection.Open();
                     _reservation = sqlConnection.Get<Reservation>(request.RESERVATION_ID);
@@ -182,6 +181,6 @@ namespace Boat.Data.DataModel.PaymentModule.Service
 
         }
 
-       
+
     }
 }

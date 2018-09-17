@@ -15,7 +15,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public List<BoatPhotos> SelectByBoatId(long boatId)
         {
             List<BoatPhotos> _photos = null;
-            using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 var sql = String.Format("select * from BOAT_PHOTOS where BOAT_ID = @id and RECORD_STATUS = 1", boatId);
                 sqlConnection.Open();
@@ -23,7 +23,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
                 //sqlConnection.Query<BoatPhotos>("select * from BOAT_PHOTOS where BOAT_ID = @id and RECORD_STATUS = 1", new { id = boatId });
 
                 if (photos.Count() == 0)
-                    throw new Exception(CommonDefinitions.BOAT_PHOTOS_NOT_FOUND);
+                    throw new Exception("BOAT_PHOTOS_NOT_FOUND");
                 else
                     _photos = photos.ToList();
             }
@@ -34,7 +34,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public BoatPhotos Update(BoatPhotos photo)
         {
             BoatPhotos _photo = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 _photo = sqlConnection.Get<BoatPhotos>(photo.BOAT_ID);
@@ -54,7 +54,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
 
         public long Insert(BoatPhotos photo)
         {
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
 
@@ -81,7 +81,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public BoatPhotos Delete(BoatPhotos photo)
         {
             BoatPhotos _photo = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 _photo = sqlConnection.Get<BoatPhotos>(photo.BOAT_ID);
@@ -101,7 +101,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public bool DeleteByBoatId(Boats boat)
         {
             bool _photo = false;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
 

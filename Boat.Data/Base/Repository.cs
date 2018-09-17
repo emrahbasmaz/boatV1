@@ -24,7 +24,7 @@ namespace Boat.Data.Base
                 return SqlMapperExtensions.Get<TEntity>(sqlConnection, key);
         }
 
-        async Task<TEntity> IRepository<TEntity, TPrimaryKey>.GetAsync(TPrimaryKey key)
+        public async Task<TEntity> GetAsync(TPrimaryKey key)
         {
             using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
                 return await SqlMapperExtensions.GetAsync<TEntity>(sqlConnection, key);
@@ -36,7 +36,7 @@ namespace Boat.Data.Base
                 return SqlMapperExtensions.Insert(sqlConnection, entity);
         }
 
-        public async Task<int> SaveAsync(TEntity entity)
+        public async Task<long> SaveAsync(TEntity entity)
         {
             using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
                 return await SqlMapperExtensions.InsertAsync(sqlConnection, entity);

@@ -23,7 +23,7 @@ namespace boatV1.Base
         [HttpGet]
         public virtual ActionResult<IEnumerable<TEntity>> Get()
         {
-            List<TEntity> entities = Service.Get();
+            IEnumerable<TEntity> entities = Service.GetAll();
             return Ok(entities);
         }
 

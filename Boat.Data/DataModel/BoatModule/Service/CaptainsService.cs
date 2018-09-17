@@ -1,5 +1,4 @@
-﻿using Boat.Backoffice.Utility;
-using Boat.Data.DataModel.BoatModule.Entity;
+﻿using Boat.Data.DataModel.BoatModule.Entity;
 using Boat.Data.DataModel.BoatModule.Service.Interface;
 using Boat.Data.Utility;
 using Dapper;
@@ -8,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace Boat.Data.DataModel.BoatModule.Service
 {
@@ -17,7 +15,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public Captains SelectByBoatId(long captainId)
         {
             Captains _captain = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 IEnumerable<Captains> captain = sqlConnection.Query<Captains>("select * from CAPTAINS where CAPTAIN_ID = @id", new { id = captainId });
@@ -30,7 +28,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public Captains Update(Captains captain)
         {
             Captains _captain = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 _captain = sqlConnection.Get<Captains>(captain.CAPTAIN_ID);
@@ -55,7 +53,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
 
         public long Insert(Captains captain)
         {
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
 
@@ -88,7 +86,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public Captains Delete(Captains captain)
         {
             Captains _captain = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 _captain = sqlConnection.Get<Captains>(captain.CAPTAIN_ID);

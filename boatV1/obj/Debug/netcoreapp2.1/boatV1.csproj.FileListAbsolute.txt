@@ -12,3 +12,8 @@ D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\boatV1.pdb
 D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.dll
 D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.pdb
 D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.csprojAssemblyReference.cache
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Business.dll
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Data.dll
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Business.pdb
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Data.pdb
+D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.csproj.CopyComplete

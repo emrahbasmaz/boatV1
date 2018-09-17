@@ -18,11 +18,11 @@ namespace Boat.Data.Interface
     /// </summary>
     public interface IService<TEntity, TPrimaryKey, TRepository> : IService
     {
-        IEnumerable<TEntity> Get();
+        IEnumerable<TEntity> GetAll();
         TEntity Get(TPrimaryKey id);
         Task<TEntity> GetAsync(TPrimaryKey id);
-        object Add(TEntity entity);
-        Task<int> AddAsync(TEntity entity);
+        long Add(TEntity entity);
+        Task<long> AddAsync(TEntity entity);
         void Update(TEntity entity);
         Task UpdateAsync(TEntity entity);
         void Delete(TEntity entity);

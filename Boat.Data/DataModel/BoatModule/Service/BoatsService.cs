@@ -1,6 +1,5 @@
 ﻿using Boat.Data.DataModel.BoatModule.Entity;
 using Boat.Data.DataModel.BoatModule.Service.Interface;
-using Boat.Backoffice.Utility;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using System;
@@ -16,7 +15,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public Boats SelectByBoatId(long boatId)
         {
             Boats _boat = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 IEnumerable<Boats> customer = sqlConnection.Query<Boats>("select * from BOATS where BOAT_ID = @id and RECORD_STATUS = 1", new { id = boatId });
@@ -29,7 +28,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public List<Boats> SelectAllBoat()
         {
             List<Boats> _boat = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 IEnumerable<Boats> allboats = sqlConnection.Query<Boats>("select * from BOATS where  RECORD_STATUS = 1");
@@ -42,7 +41,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public List<Boats> SelectByRegionId(long regionId)
         {
             List<Boats> _boat = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 IEnumerable<Boats> boats = sqlConnection.Query<Boats>("select * from BOATS where REGION_ID = @id and RECORD_STATUS = 1", new { id = regionId });
@@ -55,7 +54,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public Boats Update(Boats boat)
         {
             Boats _boat = null;
-            using (var sqlConnection = new SqlConnection(Constant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 _boat = sqlConnection.Get<Boats>(boat.BOAT_ID);
@@ -83,7 +82,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
 
         public long Insert(Boats boat)
         {
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
 
@@ -118,7 +117,7 @@ namespace Boat.Data.DataModel.BoatModule.Service
         public Boats Delete(Boats boat)
         {
             Boats _boat = null;
-            using (var sqlConnection = new SqlConnection(DbConstant.DatabaseConnection))
+            using (var sqlConnection = new SqlConnection(DbDbConstant.DatabaseConnection))
             {
                 sqlConnection.Open();
                 _boat = sqlConnection.Get<Boats>(boat.BOAT_ID);

@@ -25,7 +25,7 @@ namespace Boat.Data.Interface
         Task<TEntity> GetAsync(TPrimaryKey key);
 
         long Save(TEntity entity);
-        Task<int> SaveAsync(TEntity entity)
+        Task<long> SaveAsync(TEntity entity)
 ;
         bool Update(TEntity entity);
         Task<bool> UpdateAsync(TEntity entity);

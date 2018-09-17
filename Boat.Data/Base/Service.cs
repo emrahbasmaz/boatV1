@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boat.Data.Base
 {
-    public abstract class Service<TEntity, TPrimaryKey, TRepository>
+    public class Service<TEntity, TPrimaryKey, TRepository>
         : IService<TEntity, TPrimaryKey, TRepository>
         where TEntity : class
         where TRepository : IRepository<TEntity, TPrimaryKey>
@@ -18,7 +18,7 @@ namespace Boat.Data.Base
             Repository = repository;
         }
 
-        public virtual IEnumerable<TEntity> Get()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             string sql = "";
             return Repository.Query(sql);
@@ -34,12 +34,12 @@ namespace Boat.Data.Base
             return await Repository.GetAsync(id);
         }
 
-        public virtual object Add(TEntity entity)
+        public virtual long Add(TEntity entity)
         {
             return Repository.Save(entity);
         }
 
-        public async virtual Task<int> AddAsync(TEntity entity)
+        public async virtual Task<long> AddAsync(TEntity entity)
         {
             return await Repository.SaveAsync(entity);
         }

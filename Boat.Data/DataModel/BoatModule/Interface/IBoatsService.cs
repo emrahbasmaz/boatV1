@@ -3,7 +3,7 @@ using Boat.Framework.Interface;
 
 namespace Boat.Data.DataModel.BoatModule.Interface
 {
-    public interface IBoatPhotosRepository : IRepository<BoatPhotos, long>, IRepository
+    public interface IBoatsService : IService<Boats, long, IBoatsRepository>
     {
     }
 }

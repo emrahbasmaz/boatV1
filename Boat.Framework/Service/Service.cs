@@ -1,15 +1,15 @@
-﻿using Boat.Data.Interface;
+﻿using Boat.Framework.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boat.Data.Base
+namespace Boat.Framework.Service
 {
     public abstract class Service<TEntity, TPrimaryKey, TRepository>
-        : IService<TEntity, TPrimaryKey, TRepository>
-        where TEntity : class
-        where TRepository : IRepository<TEntity, TPrimaryKey>
+       : IService<TEntity, TPrimaryKey, TRepository>
+       where TEntity : class
+       where TRepository : IRepository<TEntity, TPrimaryKey>
     {
         protected readonly TRepository Repository;
 

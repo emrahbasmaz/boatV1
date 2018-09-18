@@ -3,7 +3,6 @@ using System;
 
 namespace Boat.Data.DataModel.BoatModule.Entity
 {
-
     [Table("BOATS")]
     public class Boats
     {

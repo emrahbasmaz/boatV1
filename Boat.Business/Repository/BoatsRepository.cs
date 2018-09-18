@@ -1,11 +1,13 @@
 ﻿using Boat.Data.DataModel.BoatModule.Entity;
 using Boat.Data.DataModel.BoatModule.Interface;
 using Boat.Framework.Repository;
-using Dapper;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Boat.Business.Repository
 {
-    public class BoatPhotosRepository : Repository<BoatPhotos, long>, IBoatPhotosRepository
+    public class BoatsRepository : Repository<Boats, long>, IBoatsRepository
     {
     }
 }

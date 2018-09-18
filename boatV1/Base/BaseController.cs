@@ -1,4 +1,4 @@
-﻿using Boat.Data.Interface;
+﻿using Boat.Framework.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,14 +28,14 @@ namespace boatV1.Base
         }
 
         [HttpGet("{id}")]
-        public virtual ActionResult<TEntity> Get(TPrimaryKey id)
+        public virtual ActionResult<TEntity> Get([FromBody] TPrimaryKey id)
         {
             TEntity entity = Service.Get(id);
             return Ok(entity);
         }
 
         [HttpGet("GetAsync/{id}")]
-        public async virtual Task<ActionResult<TEntity>> GetAsync(TPrimaryKey id)
+        public async virtual Task<ActionResult<TEntity>> GetAsync([FromBody] TPrimaryKey id)
         {
             TEntity entity = await Service.GetAsync(id);
             return Ok(entity);
@@ -70,14 +70,14 @@ namespace boatV1.Base
         }
 
         [HttpDelete("{id}")]
-        public virtual ActionResult Delete(TEntity entity)
+        public virtual ActionResult Delete([FromBody] TEntity entity)
         {
             Service.Delete(entity);
             return Ok();
         }
 
         [HttpDelete("DeleteAsync/{id}")]
-        public async virtual Task<ActionResult> DeleteAsync(TEntity entity)
+        public async virtual Task<ActionResult> DeleteAsync([FromBody] TEntity entity)
         {
             await Service.DeleteAsync(entity);
             return Ok();

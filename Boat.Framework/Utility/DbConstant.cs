@@ -1,6 +1,8 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Boat.Data.Utility
+namespace Boat.Framework.Utility
 {
     public class DbConstant
     {

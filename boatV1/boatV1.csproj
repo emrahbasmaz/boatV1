@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.3.1" />
     <PackageReference Include="linq2db.SqlServer" Version="2.3.0" />
     <PackageReference Include="linq2db.t4models" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />

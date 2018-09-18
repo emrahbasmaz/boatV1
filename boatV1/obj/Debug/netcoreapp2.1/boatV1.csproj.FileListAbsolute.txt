@@ -17,3 +17,5 @@ D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Data.dll
 D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Business.pdb
 D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Data.pdb
 D:\boatService\boatV1\boatV1\obj\Debug\netcoreapp2.1\boatV1.csproj.CopyComplete
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Framework.dll
+D:\boatService\boatV1\boatV1\bin\Debug\netcoreapp2.1\Boat.Framework.pdb

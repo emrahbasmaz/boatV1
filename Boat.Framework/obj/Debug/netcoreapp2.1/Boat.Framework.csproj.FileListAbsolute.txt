@@ -1,0 +1,8 @@
+D:\boatService\boatV1\Boat.Framework\bin\Debug\netcoreapp2.1\Boat.Framework.deps.json
+D:\boatService\boatV1\Boat.Framework\bin\Debug\netcoreapp2.1\Boat.Framework.dll
+D:\boatService\boatV1\Boat.Framework\obj\Debug\netcoreapp2.1\Boat.Framework.csproj.CoreCompileInputs.cache
+D:\boatService\boatV1\Boat.Framework\obj\Debug\netcoreapp2.1\Boat.Framework.AssemblyInfoInputs.cache
+D:\boatService\boatV1\Boat.Framework\obj\Debug\netcoreapp2.1\Boat.Framework.AssemblyInfo.cs
+D:\boatService\boatV1\Boat.Framework\bin\Debug\netcoreapp2.1\Boat.Framework.pdb
+D:\boatService\boatV1\Boat.Framework\obj\Debug\netcoreapp2.1\Boat.Framework.dll
+D:\boatService\boatV1\Boat.Framework\obj\Debug\netcoreapp2.1\Boat.Framework.pdb

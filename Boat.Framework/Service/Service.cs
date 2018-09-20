@@ -1,4 +1,6 @@
 ﻿using Boat.Framework.Interface;
+using Boat.Framework.UnitOfWork;
+using Boat.Framework.Utility;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,10 +14,15 @@ namespace Boat.Framework.Service
        where TRepository : IRepository<TEntity, TPrimaryKey>
     {
         protected readonly TRepository Repository;
+        private System.Data.IDbTransaction Transaction;
 
-        public Service(TRepository repository)
+        private IUnitOfWork _uow;
+
+        public Service(IRepository repository)
         {
-            Repository = repository;
+            _uow = new UnitOfWork.UnitOfWork(DbConstant.DatabaseConnection);
+            //Repository = repository;
+            repository = _uow.repository<TEntity>();
         }
 
         public virtual IEnumerable<TEntity> GetAll()

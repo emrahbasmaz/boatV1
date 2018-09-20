@@ -1,13 +1,14 @@
-﻿using Boat.Data.DataModel.BoatModule.Entity;
+﻿using System.Data;
+using Boat.Data.DataModel.BoatModule.Entity;
 using Boat.Data.DataModel.BoatModule.Interface;
-using Boat.Framework.Repository;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Boat.Framework.GenericRepository;
 
 namespace Boat.Business.Repository
 {
-    public class BoatsRepository : Repository<Boats, long>, IBoatsRepository
+    public class BoatsRepository : GenericRepository<Boats, long>, IBoatsRepository
     {
+        public BoatsRepository(IDbTransaction transaction) : base(transaction)
+        {
+        }
     }
 }

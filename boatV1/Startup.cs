@@ -1,6 +1,8 @@
 ﻿using Boat.Business.Service;
 using Boat.Data.DataModel.BoatModule.Interface;
+using Boat.Framework.Interface;
 using Boat.Framework.Ioc;
+using Boat.Framework.Service;
 using Castle.Windsor.MsDependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +17,7 @@ namespace boatV1
 {
     public class Startup
     {
-      //  private ILogger logger = IocFacility.Container.Resolve<ILoggerFactory>().CreateLogger(typeof(Startup));
+        //  private ILogger logger = IocFacility.Container.Resolve<ILoggerFactory>().CreateLogger(typeof(Startup));
 
         public Startup(IConfiguration configuration)
         {
@@ -28,7 +30,8 @@ namespace boatV1
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             //logger.SetGlobalContext("ApplicationName", typeof(Startup).Assembly.GetName().Name);
-
+            services.AddScoped<IService, BoatsService>();
+            services.AddScoped<IService, BoatPhotosService>();
             //services.AddScoped<IBoatPhotosService, BoatPhotosService>();
             //services.AddScoped<IBoatsService, BoatsService>();
 

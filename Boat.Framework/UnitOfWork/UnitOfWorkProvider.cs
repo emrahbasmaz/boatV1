@@ -1,13 +1,14 @@
 ﻿using Boat.Framework.Interface;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Reflection;
 using System.Text;
 using System.Threading;
 
 namespace Boat.Framework.UnitOfWork
 {
-    public class UnitOfWorkProvider 
+    public class UnitOfWorkProvider
     {
         private static AsyncLocal<UnitOfWorkProvider> current = new AsyncLocal<UnitOfWorkProvider>();
 
@@ -24,9 +25,14 @@ namespace Boat.Framework.UnitOfWork
         public UnitOfWorkAttribute UnitOfWork { get; private set; }
 
         /// <summary>
+        ///     Reference to the currently connect to db transcation.
+        /// </summary>
+        private IDbConnection _connection;
+
+        /// <summary>
         ///     Reference to the currently running transcation.
         /// </summary>
-       // private ITransaction transaction;
+        private IDbTransaction transaction;
 
         /// <summary>
         ///     Creates a new instance of UnitOfWorkProvider.

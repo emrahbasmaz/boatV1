@@ -1,9 +1,6 @@
 ﻿using Boat.Framework.Interface;
-using Boat.Framework.UnitOfWork;
 using Boat.Framework.Utility;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Boat.Framework.Service
@@ -14,7 +11,6 @@ namespace Boat.Framework.Service
        where TRepository : IRepository<TEntity, TPrimaryKey>
     {
         protected readonly TRepository Repository;
-        private System.Data.IDbTransaction Transaction;
 
         private IUnitOfWork _uow;
 
@@ -33,6 +29,7 @@ namespace Boat.Framework.Service
 
         public virtual TEntity Get(TPrimaryKey id)
         {
+            _uow.BeginTransaction();
             return Repository.Get(id);
         }
 

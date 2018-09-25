@@ -12,22 +12,56 @@ namespace Boat.Framework.UnitOfWork
         ///     Reference to the currently connect to db transcation.
         /// </summary>
         private IDbConnection _connection;
+        private readonly string _connectionString;
 
         /// <summary>
         ///     Reference to the currently running transcation.
         /// </summary>
-        private IDbTransaction _transaction;
+        public IDbTransaction _transaction;
 
         public UnitOfWork(string connectionString)
         {
-            _connection = new SqlConnection(connectionString);
+            _connectionString = connectionString;
             _connection.Open();
-            _transaction = _connection.BeginTransaction();
+
+        }
+
+        ///     Get the current connection, or open a new connection
+        /// </summary>
+
+        public IDbConnection Connection
+        {
+            get
+            {
+                if (_connection == null)
+                    _connection = new SqlConnection(_connectionString);
+
+                if (string.IsNullOrWhiteSpace(_connection.ConnectionString))
+                    _connection.ConnectionString = _connectionString;
+
+                if (_connection.State == ConnectionState.Closed)
+                    _connection.Open();
+
+                return _connection;
+            }
+        }
+
+        IDbTransaction IUnitOfWork.Transaction => _transaction;
+
+        public IDbTransaction Transaction;
+
+        public IDbTransaction BeginTransaction()
+        {
+            if (_transaction == null || _transaction.Connection == null)
+                _transaction = Connection.BeginTransaction();
+
+            return _transaction;
         }
 
         public IRepository<TEntity, long> repository<TEntity>() where TEntity : class
         {
-            return new GenericRepository<TEntity, long>(_transaction);
+
+            return new GenericRepository<TEntity, long>(BeginTransaction());
         }
 
         public void Commit()

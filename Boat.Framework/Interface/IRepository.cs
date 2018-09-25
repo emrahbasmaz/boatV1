@@ -30,5 +30,12 @@ namespace Boat.Framework.Interface
 
         bool Delete(TEntity entity);
         Task<bool> DeleteAsync(TEntity entity);
+
+        /// <summary>
+        /// Unit of Work method to persist changes 
+        /// </summary>
+        /// <returns></returns>
+        bool Commit();
+        Task CommitAsync();
     }
 }

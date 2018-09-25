@@ -1,17 +1,16 @@
-﻿using Boat.Business.Service;
-using Boat.Data.DataModel.BoatModule.Interface;
+﻿using Boat.Business.Repository;
+using Boat.Business.Service;
+using Boat.Business.Service.Interface;
 using Boat.Framework.Interface;
-using Boat.Framework.Ioc;
-using Boat.Framework.Service;
-using Castle.Windsor.MsDependencyInjection;
+using Boat.Framework.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
-using System;
+using System.Data;
+using System.Data.Common;
 
 namespace boatV1
 {
@@ -27,13 +26,19 @@ namespace boatV1
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
-            //logger.SetGlobalContext("ApplicationName", typeof(Startup).Assembly.GetName().Name);
-            services.AddScoped<IService, BoatsService>();
-            services.AddScoped<IService, BoatPhotosService>();
-            //services.AddScoped<IBoatPhotosService, BoatPhotosService>();
-            //services.AddScoped<IBoatsService, BoatsService>();
+
+            services.AddOptions();
+
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+
+            services.AddTransient<IBoatsService, BoatsService>();
+            //services.AddTransient<IBoatPhotosService, BoatPhotosService>();
+            //services.AddTransient<IBoatPhotosRepository, BoatPhotosRepository>();
+            services.AddTransient<IBoatsRepository, BoatsRepository>();
+            //services.AddTransient<IDbTransaction, DbTransaction>();
+            services.AddScoped<IDbTransaction, DbTransaction>();
 
             services.AddMvc()
                  .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
@@ -46,7 +51,7 @@ namespace boatV1
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
 
-            return WindsorRegistrationHelper.CreateServiceProvider(IocFacility.Container, services);
+            //return WindsorRegistrationHelper.CreateServiceProvider(IocFacility.Container, services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

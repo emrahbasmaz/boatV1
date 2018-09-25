@@ -1,13 +1,9 @@
 ﻿using Boat.Framework.Interface;
-using Boat.Framework.Ioc;
-using Boat.Framework.Utility;
 using Dapper;
 using Dapper.Contrib.Extensions;
-using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace Boat.Framework.GenericRepository
@@ -20,10 +16,11 @@ namespace Boat.Framework.GenericRepository
 
         public GenericRepository(IDbTransaction transaction)
         {
-            Transaction = transaction ?? throw new ArgumentNullException("transaction can not be null.");
+            Transaction = transaction;
+            // Transaction = transaction ?? throw new ArgumentNullException("transaction can not be null.");
         }
 
-        protected IStringLocalizer<string> Localizer => IocFacility.Container.Resolve<IStringLocalizer<string>>();
+        // protected IStringLocalizer<string> Localizer => IocFacility.Container.Resolve<IStringLocalizer<string>>();
 
         public IEnumerable<TEntity> Query(string sql)
         {
@@ -88,5 +85,22 @@ namespace Boat.Framework.GenericRepository
             //    return await SqlMapperExtensions.DeleteAsync(sqlConnection, entity);
         }
 
+        public bool Commit()
+        {
+            try
+            {
+                Transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public Task CommitAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

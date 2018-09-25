@@ -1,8 +1,7 @@
 ﻿using Boat.Data.DataModel.BoatModule.Entity;
 using Boat.Data.DataModel.BoatModule.Interface;
 using Boat.Framework.GenericRepository;
-using Dapper;
-using System.Data;
+using System.Data; 
 
 namespace Boat.Business.Repository
 {

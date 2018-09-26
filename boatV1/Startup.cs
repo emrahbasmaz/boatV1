@@ -1,6 +1,6 @@
 ﻿using Boat.Business.Repository;
 using Boat.Business.Service;
-using Boat.Business.Service.Interface;
+using Boat.Data.DataModel.BoatModule.Interface;
 using Boat.Framework.Interface;
 using Boat.Framework.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
@@ -16,8 +16,6 @@ namespace boatV1
 {
     public class Startup
     {
-        //  private ILogger logger = IocFacility.Container.Resolve<ILoggerFactory>().CreateLogger(typeof(Startup));
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,17 +26,10 @@ namespace boatV1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddOptions();
 
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
-
             services.AddTransient<IBoatsService, BoatsService>();
-            //services.AddTransient<IBoatPhotosService, BoatPhotosService>();
-            //services.AddTransient<IBoatPhotosRepository, BoatPhotosRepository>();
             services.AddTransient<IBoatsRepository, BoatsRepository>();
-            //services.AddTransient<IDbTransaction, DbTransaction>();
-            services.AddScoped<IDbTransaction, DbTransaction>();
 
             services.AddMvc()
                  .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)

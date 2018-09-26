@@ -1,73 +1,73 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Boat.Business.Repository;
-using Boat.Business.Service.Interface;
-using Boat.Data.DataModel.BoatModule.Entity;
-using Boat.Framework.UnitOfWork;
-using Boat.Framework.Utility;
+﻿using Boat.Data.DataModel.BoatModule.Entity;
+using Boat.Data.DataModel.BoatModule.Interface;
+using Boat.Framework.Service;
 
 namespace Boat.Business.Service
 {
-    public class BoatsService : IBoatsService
+    public class BoatsService : Service<Boats, long, IBoatsRepository>, IBoatsService
     {
-        private readonly UnitOfWork unitOfWork;
-        private readonly IBoatsRepository _repository;
-        public BoatsService(IBoatsRepository repository)
+        public BoatsService(IBoatsRepository repository) : base(repository)
         {
-            unitOfWork = new UnitOfWork(DbConstant.DatabaseConnection);
-            _repository = repository;
         }
 
-        public long Add(Boats entity)
-        {
-            this.unitOfWork.BeginTransaction();
+        ////private readonly UnitOfWork unitOfWork;
+        //private readonly IBoatsRepository _repository;
+        //public BoatsService(IBoatsRepository repository)
+        //{
+        //    //unitOfWork = new UnitOfWork(DbConstant.DatabaseConnection);
+        //    _repository = repository;
+        //}
 
-            long id = this._repository.Save(entity);
+        //public long Add(Boats entity)
+        //{
+        //    //this.unitOfWork.BeginTransaction();
 
-            this.unitOfWork.Commit();
+        //    return this._repository.Save(entity);
 
-            return id;
+        //    //this.unitOfWork.Commit();
 
-        }
+        //    //return id;
 
-        public Task<long> AddAsync(Boats entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        //}
 
-        public void Delete(Boats entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        //public Task<long> AddAsync(Boats entity)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
 
-        public Task DeleteAsync(Boats entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        //public void Delete(Boats entity)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
 
-        public Boats Get(long id)
-        {
-            throw new System.NotImplementedException();
-        }
+        //public Task DeleteAsync(Boats entity)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
 
-        public IEnumerable<Boats> GetAll()
-        {
-            return this._repository.GetAll();
-        }
+        //public Boats Get(long id)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
 
-        public Task<Boats> GetAsync(long id)
-        {
-            throw new System.NotImplementedException();
-        }
+        //public IEnumerable<Boats> GetAll()
+        //{
+        //    return this._repository.GetAll();
+        //}
 
-        public void Update(Boats entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        //public Task<Boats> GetAsync(long id)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
 
-        public Task UpdateAsync(Boats entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        //public void Update(Boats entity)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
+
+        //public Task UpdateAsync(Boats entity)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
     }
 }

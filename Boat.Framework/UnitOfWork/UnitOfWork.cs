@@ -58,11 +58,11 @@ namespace Boat.Framework.UnitOfWork
             return _transaction;
         }
 
-        public IRepository<TEntity, long> repository<TEntity>() where TEntity : class
-        {
+        //public IRepository<TEntity, long> repository<TEntity>() where TEntity : class
+        //{
 
-            return new GenericRepository<TEntity, long>(BeginTransaction());
-        }
+        //    return new GenericRepository<TEntity, TPrimaryKey>(BeginTransaction());
+        //}
 
         public void Commit()
         {
@@ -95,6 +95,11 @@ namespace Boat.Framework.UnitOfWork
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        public IRepository<TEntity, long> repository<TEntity>() where TEntity : class
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

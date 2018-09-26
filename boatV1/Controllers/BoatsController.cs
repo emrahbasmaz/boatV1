@@ -1,33 +1,15 @@
-﻿using Boat.Business.Service.Interface;
-using Boat.Data.DataModel.BoatModule.Entity;
+﻿using Boat.Data.DataModel.BoatModule.Entity;
+using Boat.Data.DataModel.BoatModule.Interface;
+using boatV1.Base;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace boatV1.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class BoatsController : ControllerBase
+    public class BoatsController : BaseController<Boats, long, IBoatsRepository, IBoatsService>
     {
-        private readonly IBoatsService Service;
-
-        public BoatsController(IBoatsService service)
+        public BoatsController(IBoatsService service) : base(service)
         {
-            Service = service;
-        }
-
-        [HttpGet]
-        public virtual ActionResult<IEnumerable<Boats>> GetAll()
-        {
-            IEnumerable<Boats> entities = Service.GetAll();
-            return Ok(entities);
-        }
-
-        [HttpPost]
-        public virtual ActionResult<object> Add([FromBody]  Boats entity)
-        {
-            var id = Service.Add(entity);
-            return Ok(id);
         }
     }
 }

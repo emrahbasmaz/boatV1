@@ -12,24 +12,19 @@ namespace Boat.Framework.Service
     {
         protected readonly TRepository Repository;
 
-        private IUnitOfWork _uow;
-
-        public Service(IRepository repository)
+        public Service(TRepository repository)
         {
-            _uow = new UnitOfWork.UnitOfWork(DbConstant.DatabaseConnection);
-            //Repository = repository;
-            repository = _uow.repository<TEntity>();
+            Repository = repository;
         }
 
         public virtual IEnumerable<TEntity> GetAll()
         {
-            string sql = "";
+            string sql = string.Format("Select * from dbo.BOATS");
             return Repository.Query(sql);
         }
 
         public virtual TEntity Get(TPrimaryKey id)
         {
-            _uow.BeginTransaction();
             return Repository.Get(id);
         }
 

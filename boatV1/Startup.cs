@@ -1,16 +1,12 @@
 ﻿using Boat.Business.Repository;
 using Boat.Business.Service;
 using Boat.Data.DataModel.BoatModule.Interface;
-using Boat.Framework.Interface;
-using Boat.Framework.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
-using System.Data;
-using System.Data.Common;
 
 namespace boatV1
 {
